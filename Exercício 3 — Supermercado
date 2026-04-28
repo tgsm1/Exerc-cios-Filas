@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Cliente {
+    String nome;
+    int produtos;
+
+    Cliente(String nome, int produtos) {
+        this.nome = nome;
+        this.produtos = produtos;
+    }
+}
+
+public class Supermercado {
+    public static void main(String[] args) {
+        Queue<Cliente> fila = new LinkedList<>();
+
+        fila.add(new Cliente("Ana", 10));
+        fila.add(new Cliente("João", 5));
+        fila.add(new Cliente("Carlos", 8));
+        fila.add(new Cliente("Maria", 3));
+        fila.add(new Cliente("Pedro", 12));
+
+        while (!fila.isEmpty()) {
+            Cliente c = fila.poll();
+            System.out.println("Atendendo: " + c.nome);
+            System.out.println("Restam: " + fila.size() + " clientes");
+        }
+    }
+}
