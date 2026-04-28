@@ -1,0 +1,35 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Documento {
+    String nome;
+    int paginas;
+
+    Documento(String nome, int paginas) {
+        this.nome = nome;
+        this.paginas = paginas;
+    }
+}
+
+public class FilaImpressao {
+    public static void main(String[] args) {
+        Queue<Documento> fila = new LinkedList<>();
+
+        fila.add(new Documento("Doc1", 10));
+        fila.add(new Documento("Doc2", 5));
+        fila.add(new Documento("Doc3", 20));
+        fila.add(new Documento("Doc4", 15));
+        fila.add(new Documento("Doc5", 8));
+
+        System.out.println("Fila inicial:");
+        for (Documento d : fila) {
+            System.out.println(d.nome + " - " + d.paginas + " páginas");
+        }
+
+        System.out.println("\nImprimindo...");
+        while (!fila.isEmpty()) {
+            Documento atual = fila.poll();
+            System.out.println("Imprimindo: " + atual.nome);
+        }
+    }
+}
