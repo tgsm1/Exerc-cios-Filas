@@ -1,0 +1,15 @@
+class Documento implements Comparable<Documento> {
+    String nome;
+    int paginas;
+    int prioridade;
+
+    Documento(String nome, int paginas, int prioridade) {
+        this.nome = nome;
+        this.paginas = paginas;
+        this.prioridade = prioridade;
+    }
+
+    public int compareTo(Documento d) {
+        return this.prioridade - d.prioridade;
+    }
+}
