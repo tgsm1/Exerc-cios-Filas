@@ -1,0 +1,37 @@
+import java.util.*;
+
+class Pessoa {
+    String nome;
+    String tipo; // normal ou prioritária
+
+    Pessoa(String nome, String tipo) {
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+}
+
+public class Prioridade {
+    public static void main(String[] args) {
+        Queue<Pessoa> normal = new LinkedList<>();
+        Queue<Pessoa> prioridade = new LinkedList<>();
+
+        prioridade.add(new Pessoa("Ana", "P"));
+        prioridade.add(new Pessoa("Carlos", "P"));
+        prioridade.add(new Pessoa("Maria", "P"));
+
+        normal.add(new Pessoa("João", "N"));
+        normal.add(new Pessoa("Pedro", "N"));
+
+        int contador = 0;
+
+        while (!prioridade.isEmpty() || !normal.isEmpty()) {
+            if ((!prioridade.isEmpty() && contador < 3) || normal.isEmpty()) {
+                System.out.println("Atendendo PRIORIDADE: " + prioridade.poll().nome);
+                contador++;
+            } else {
+                System.out.println("Atendendo NORMAL: " + normal.poll().nome);
+                contador = 0;
+            }
+        }
+    }
+}
